@@ -1,3 +1,7 @@
+import dns from "node:dns";
+
+dns.setServers(["8.8.8.8"]);
+
 import http from "node:http";
 import express from "express";
 import cors from "cors";
@@ -43,7 +47,7 @@ app.use(
   cors({
     origin: env.CLIENT_URL,
     credentials: true,
-    methods: ["GET", "POST", "PATCH", "DELETE"],
+    methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
   })
 );
 
